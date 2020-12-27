@@ -1,0 +1,114 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition 
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+<rotatebutton@MDFillRoundFlatButton>:
+    angle:0
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            axis: 0,0,1
+            origin:root.center
+    canvas.after:
+        PopMatrix
+
+<TestAnimationCard@MDBoxLayout>
+    orientation: 'vertical'
+    padding: dp(10)
+    spacing: dp(10)
+    adaptive_height: True
+
+    MDBoxLayout:
+        adaptive_height: True
+
+        Widget:
+        MDRoundFlatButton:
+            text: "Free call"
+        Widget:
+        MDRoundFlatButton:
+            text: "Free message"
+        Widget:
+
+    OneLineIconListItem:
+        text: "Video call"
+        IconLeftSampleWidget:
+            icon: 'camera-front-variant'
+
+    TwoLineIconListItem:
+        text: "Call Viber Out"
+        secondary_text: "[color=%s]Advantageous rates for calls[/color]" % get_hex_from_color(app.theme_cls.primary_color)
+        IconLeftSampleWidget:
+            icon: 'phone'
+
+    TwoLineIconListItem:
+        text: "Call over mobile network"
+        secondary_text: "[color=%s]Operator's tariffs apply[/color]" % get_hex_from_color(app.theme_cls.primary_color)
+        IconLeftSampleWidget:
+            icon: 'remote'
+
+ScreenManager:
+    transition: FadeTransition()
+    SecondScreen:
+
+<SecondScreen>:
+    name :'second_screen'
+
+    ScrollView:
+        MDGridLayout:
+            id : grid
+            cols: 2
+            row_default_height: (self.width - self.cols*self.spacing[0]) / self.cols
+            row_force_default: True
+            adaptive_height: True
+            padding: dp(4), dp(4)
+            spacing: dp(4)
+
+            SmartTileWithStar:
+                stars: 5
+                source: "i1.jpg"
+                on_release: root.share("./i1.jpg")
+
+            SmartTileWithStar:
+                stars: 3
+                source: "i2.jpg"
+                on_release: root.share("./i2.jpg")
+
+            SmartTileWithStar:
+                stars: 2
+                source: "i3.jpg"
+                on_release: root.share("./i3.jpg")
+
+            SmartTileWithStar:
+                stars: 5
+                source: "i4.jpg"
+                on_release: root.share("./i4.jpg")
+
+            SmartTileWithStar:
+                stars: 4
+                source: "i5.jpg"
+                on_release: root.share("./i5.jpg")
+
+            SmartTileWithStar:
+                stars: 2
+                source: "i6.jpg"
+                on_release: root.share("./i6.jpg")
+
+            SmartTileWithStar:
+                stars: 5
+                source: "i7.jpg"
+                on_release: root.share("./i7.jpg")
+
+            SmartTileWithStar:
+                stars: 3
+                source: "i8.jpg"
+                on_release: root.share("./i8.jpg")
+
+            SmartTileWithStar:
+                stars: 1
+                source: "i9.jpg"
+                on_release: root.share("./i9.jpg")
+
+            SmartTileWithStar:
+                stars: 4
+                source: "i10.jpg"
+                on_release: root.share("./i10.jpg")
+    
